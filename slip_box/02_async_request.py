@@ -21,7 +21,7 @@ async def main():
 
     response = await client.aio.models.generate_content(
         model = ModelName.GEMINI_2_5_FLASH_PREVIEW,
-        contents = "make summary of this video: https://youtu.be/bwz3Z9GXLyI?si=-pr157wnyggKjwxL"
+        contents = "Why is the sky blue?",
     )
 
     print(response.text)
