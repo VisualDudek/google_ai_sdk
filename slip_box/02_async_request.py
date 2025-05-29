@@ -1,6 +1,7 @@
 from google import genai
 from dotenv import load_dotenv
 from enum import Enum
+from google.genai import types
 
 import asyncio
 import os
@@ -19,11 +20,14 @@ class ModelName(Enum):
 
 async def main():
 
-    response = await client.aio.models.generate_content(
+    #         vvvvvvvvvvvvvvvvvvvvvvvvvvvv type hinting for response
+    response: types.GenerateContentResponse = await client.aio.models.generate_content(
         model = ModelName.GEMINI_2_5_FLASH_PREVIEW,
         contents = "Why is the sky blue?",
     )
 
     print(response.text)
+    print(response)
+
 
 asyncio.run(main())
